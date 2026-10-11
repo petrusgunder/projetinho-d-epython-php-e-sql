@@ -1,0 +1,8 @@
+#pastas
+__pycache__/
+.venv/
+
+#arquivos
+chave.key
+dados_criptografados.json
+
