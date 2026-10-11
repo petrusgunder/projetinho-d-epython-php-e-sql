@@ -1,13 +1,37 @@
 import json
+import re
 
-class Usuario:
-    self.nome = self
-    self.email = self
-    self.idade = self
+def verificar_email(dado):
+  padrao = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+  if re.match(padrao, dado):
+    return True
+  return False
 
-nome = input("digite o nome; ")
-email = input("digite um email; ")
-idade = int(input("digite sua idade; "))
+print("--cadastro e usuarios--")
 
-dados = Usuario(nome,email,idade)
-url = "http://localhost/projeto/cadastro.php"
+nome = input('digite o nome de seu usuarios: ')
+email = input('digite seu email: ')
+
+if nome == '':
+    print('nome invalido!!!')
+else:
+    if verificar_email(email):
+    
+        try:
+            idade = int(input('digite sua idade: '))
+        except ValueError:
+            print("numero invalido")
+        else:
+            if idade > 0:
+                Usuario = [
+                    {"nome": nome, "email": email,"idade": idade}
+                ]
+
+                with open("dados.json", "w") as arquivo:
+                    json.dump(Usuario, arquivo)
+
+                print("Arquivo dado.json criado com sucesso!")
+            else:
+                print("idade negativa invalida")
+    else:
+        print("emial invalido!")
