@@ -1,8 +1,11 @@
 #pastas
 __pycache__/
 .venv/
+vendor/
 
 #arquivos
 chave.key
 dados_criptografados.json
+composer.json
+composer.lock
 

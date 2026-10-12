@@ -33,10 +33,6 @@ def verificar_idade(idade):
     else:
         return False
 
-import json
-import os
-
-
 def criar_json(nome, email, idade):
   novo_usuario = {"nome": nome, "email": email, "idade": idade}
   usuarios = []
